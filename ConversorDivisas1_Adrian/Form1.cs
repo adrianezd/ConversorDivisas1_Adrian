@@ -16,5 +16,20 @@ namespace ConversorDivisas1_Adrian
         {
             InitializeComponent();
         }
+
+        private void tbPesetas_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(tbPesetas.Text)){
+                double pesetas = Convert.ToDouble((tbPesetas.Text));
+                pesetas = pesetas / 166.386;
+                lbResultadoEuro.Text = pesetas.ToString();
+            }
+
+            if (!string.IsNullOrEmpty(tbPesetas.Text))
+            {
+                lbResultadoPeseta.Text = tbPesetas.Text;
+            }
+
+        }
     }
 }
