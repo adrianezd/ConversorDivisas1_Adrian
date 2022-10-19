@@ -56,13 +56,19 @@ namespace ConversorDivisas1_Adrian
             if (!string.IsNullOrEmpty(tbPesetas.Text)){
                 if (tbPesetas.Text.All(char.IsDigit) || (!tbPesetas.Text.StartsWith(",")))
                 {
-                    
-                    double valor = Convert.ToDouble(tbPesetas.Text);
-                    Conversor(valor,"Pesetas");
+                    if (tbPesetas.Text.All(char.IsDigit))
+                    {
+                        double valor = Convert.ToDouble(tbPesetas.Text);
+                        Conversor(valor, "Pesetas");
+                    }
+                    else
+                    {
+                        tbPesetas.Text = tbPesetas.Text.Remove((tbPesetas.Text).Length - 1);
+                    }
                 }
                 else
                 {
-                    tbPesetas.Text = tbPesetas.Text.Remove((tbPesetas.Text).Length - 1);
+                    tbPesetas.Text = "";
                 }
             }
 
@@ -72,36 +78,6 @@ namespace ConversorDivisas1_Adrian
             }
 
         }
-        private void tbPesos_TextChanged(object sender, EventArgs e)
-        {
-   
-        }
-
-        private void tbDolares_TextChanged(object sender, EventArgs e)
-        {
-            tbEuros.Text = ""; tbPesetas.Text = ""; tbPesos.Text = "";
-            if (!string.IsNullOrEmpty(tbDolares.Text))
-            {
-                if (tbDolares.Text.All(char.IsDigit) || (!tbDolares.Text.StartsWith(",")))
-                {
-                    double valor = Convert.ToDouble(tbDolares.Text);
-                    Conversor(valor, "Dolares");
-                }
-                else
-                {
-                    tbDolares.Text = tbDolares.Text.Remove((tbDolares.Text).Length - 1);
-                }
-            }
-
-            if (!string.IsNullOrEmpty(tbDolares.Text))
-            {
-                lbResultadoDolares.Text = tbDolares.Text;
-            }
-
-        }
-
-        private void tbEuros_TextChanged(object sender, EventArgs e) { }
-       
 
         private void tbEuros_TextChanged_1(object sender, EventArgs e)
         {
@@ -110,8 +86,15 @@ namespace ConversorDivisas1_Adrian
             {
                 if (tbEuros.Text.All(char.IsDigit) || (!tbEuros.Text.StartsWith(",")))
                 {
-                    double valor = Convert.ToDouble(tbEuros.Text);
-                    Conversor(valor, "Euros");
+                    if (tbEuros.Text.All(char.IsDigit))
+                    {
+                        double valor = Convert.ToDouble(tbEuros.Text);
+                        Conversor(valor, "Euros");
+                    }
+                    else
+                    {
+                        tbEuros.Text = tbEuros.Text.Remove((tbEuros.Text).Length - 1);
+                    }
                 }
                 else
                 {
@@ -131,7 +114,7 @@ namespace ConversorDivisas1_Adrian
             tbEuros.Text = ""; tbPesetas.Text = ""; tbPesos.Text = "";
             if (!string.IsNullOrEmpty(tbDolares.Text))
             {
-                if (tbDolares.Text.All(char.IsDigit) || (!tbDolares.Text.StartsWith(",")))
+                if (tbDolares.Text.All(char.IsDigit))
                 {
                     double valor = Convert.ToDouble(tbDolares.Text);
                     Conversor(valor, "Dolares");
@@ -141,7 +124,6 @@ namespace ConversorDivisas1_Adrian
                     tbDolares.Text = tbDolares.Text.Remove((tbDolares.Text).Length - 1);
                 }
             }
-
             if (!string.IsNullOrEmpty(tbDolares.Text))
             {
                 lbResultadoDolares.Text = tbDolares.Text;
@@ -156,8 +138,15 @@ namespace ConversorDivisas1_Adrian
             {
                 if (tbPesos.Text.All(char.IsDigit) || (!tbPesos.Text.StartsWith(",")))
                 {
-                    double valor = Convert.ToDouble(tbPesos.Text);
-                    Conversor(valor, "Pesos");
+                    if (tbPesos.Text.All(char.IsDigit))
+                    {
+                        double valor = Convert.ToDouble(tbPesos.Text);
+                        Conversor(valor, "Pesos");
+                    }
+                    else
+                    {
+                        tbPesos.Text = tbPesos.Text.Remove((tbPesos.Text).Length - 1);
+                    }
                 }
                 else
                 {

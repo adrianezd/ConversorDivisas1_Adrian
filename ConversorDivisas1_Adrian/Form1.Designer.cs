@@ -155,9 +155,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::ConversorDivisas1_Adrian.Properties.Resources.free_dollar_coin_icon_2149_thumb1;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(-21, 29);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(458, 473);
+            this.pictureBox1.Size = new System.Drawing.Size(524, 491);
             this.pictureBox1.TabIndex = 12;
             this.pictureBox1.TabStop = false;
             // 
@@ -165,7 +165,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(871, 505);
+            this.ClientSize = new System.Drawing.Size(904, 549);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lbResultadoPesos);
             this.Controls.Add(this.tbPesos);
