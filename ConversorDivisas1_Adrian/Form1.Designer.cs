@@ -32,12 +32,8 @@
             this.lbEuros = new System.Windows.Forms.Label();
             this.tbPesetas = new System.Windows.Forms.TextBox();
             this.tbEuros = new System.Windows.Forms.TextBox();
-            this.lbResultadoPeseta = new System.Windows.Forms.Label();
-            this.lbResultadoEuro = new System.Windows.Forms.Label();
-            this.lbResultadoDolares = new System.Windows.Forms.Label();
             this.tbDolares = new System.Windows.Forms.TextBox();
             this.lbDolares = new System.Windows.Forms.Label();
-            this.lbResultadoPesos = new System.Windows.Forms.Label();
             this.tbPesos = new System.Windows.Forms.TextBox();
             this.lbPesos = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -70,7 +66,9 @@
             this.tbPesetas.Name = "tbPesetas";
             this.tbPesetas.Size = new System.Drawing.Size(100, 22);
             this.tbPesetas.TabIndex = 2;
+            this.tbPesetas.Click += new System.EventHandler(this.tbPesetas_Click);
             this.tbPesetas.TextChanged += new System.EventHandler(this.tbPesetas_TextChanged);
+            this.tbPesetas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPesetas_KeyPress);
             // 
             // tbEuros
             // 
@@ -78,34 +76,9 @@
             this.tbEuros.Name = "tbEuros";
             this.tbEuros.Size = new System.Drawing.Size(100, 22);
             this.tbEuros.TabIndex = 3;
+            this.tbEuros.Click += new System.EventHandler(this.tbEuros_Click);
             this.tbEuros.TextChanged += new System.EventHandler(this.tbEuros_TextChanged_1);
-            // 
-            // lbResultadoPeseta
-            // 
-            this.lbResultadoPeseta.AutoSize = true;
-            this.lbResultadoPeseta.Location = new System.Drawing.Point(540, 193);
-            this.lbResultadoPeseta.Name = "lbResultadoPeseta";
-            this.lbResultadoPeseta.Size = new System.Drawing.Size(14, 16);
-            this.lbResultadoPeseta.TabIndex = 4;
-            this.lbResultadoPeseta.Text = "0";
-            // 
-            // lbResultadoEuro
-            // 
-            this.lbResultadoEuro.AutoSize = true;
-            this.lbResultadoEuro.Location = new System.Drawing.Point(699, 193);
-            this.lbResultadoEuro.Name = "lbResultadoEuro";
-            this.lbResultadoEuro.Size = new System.Drawing.Size(14, 16);
-            this.lbResultadoEuro.TabIndex = 5;
-            this.lbResultadoEuro.Text = "0";
-            // 
-            // lbResultadoDolares
-            // 
-            this.lbResultadoDolares.AutoSize = true;
-            this.lbResultadoDolares.Location = new System.Drawing.Point(540, 393);
-            this.lbResultadoDolares.Name = "lbResultadoDolares";
-            this.lbResultadoDolares.Size = new System.Drawing.Size(14, 16);
-            this.lbResultadoDolares.TabIndex = 8;
-            this.lbResultadoDolares.Text = "0";
+            this.tbEuros.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbEuros_KeyPress);
             // 
             // tbDolares
             // 
@@ -113,7 +86,9 @@
             this.tbDolares.Name = "tbDolares";
             this.tbDolares.Size = new System.Drawing.Size(100, 22);
             this.tbDolares.TabIndex = 7;
+            this.tbDolares.Click += new System.EventHandler(this.tbDolares_Click);
             this.tbDolares.TextChanged += new System.EventHandler(this.tbDolares_TextChanged_1);
+            this.tbDolares.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbDolares_KeyPress);
             // 
             // lbDolares
             // 
@@ -125,22 +100,15 @@
             this.lbDolares.TabIndex = 6;
             this.lbDolares.Text = "Dolares";
             // 
-            // lbResultadoPesos
-            // 
-            this.lbResultadoPesos.AutoSize = true;
-            this.lbResultadoPesos.Location = new System.Drawing.Point(701, 393);
-            this.lbResultadoPesos.Name = "lbResultadoPesos";
-            this.lbResultadoPesos.Size = new System.Drawing.Size(14, 16);
-            this.lbResultadoPesos.TabIndex = 11;
-            this.lbResultadoPesos.Text = "0";
-            // 
             // tbPesos
             // 
             this.tbPesos.Location = new System.Drawing.Point(694, 329);
             this.tbPesos.Name = "tbPesos";
             this.tbPesos.Size = new System.Drawing.Size(100, 22);
             this.tbPesos.TabIndex = 10;
+            this.tbPesos.Click += new System.EventHandler(this.tbPesos_Click);
             this.tbPesos.TextChanged += new System.EventHandler(this.tbPesos_TextChanged_1);
+            this.tbPesos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPesos_KeyPress);
             // 
             // lbPesos
             // 
@@ -167,14 +135,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(904, 549);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.lbResultadoPesos);
             this.Controls.Add(this.tbPesos);
             this.Controls.Add(this.lbPesos);
-            this.Controls.Add(this.lbResultadoDolares);
             this.Controls.Add(this.tbDolares);
             this.Controls.Add(this.lbDolares);
-            this.Controls.Add(this.lbResultadoEuro);
-            this.Controls.Add(this.lbResultadoPeseta);
             this.Controls.Add(this.tbEuros);
             this.Controls.Add(this.tbPesetas);
             this.Controls.Add(this.lbEuros);
@@ -193,12 +157,8 @@
         private System.Windows.Forms.Label lbEuros;
         private System.Windows.Forms.TextBox tbPesetas;
         private System.Windows.Forms.TextBox tbEuros;
-        private System.Windows.Forms.Label lbResultadoPeseta;
-        private System.Windows.Forms.Label lbResultadoEuro;
-        private System.Windows.Forms.Label lbResultadoDolares;
         private System.Windows.Forms.TextBox tbDolares;
         private System.Windows.Forms.Label lbDolares;
-        private System.Windows.Forms.Label lbResultadoPesos;
         private System.Windows.Forms.TextBox tbPesos;
         private System.Windows.Forms.Label lbPesos;
         private System.Windows.Forms.PictureBox pictureBox1;
