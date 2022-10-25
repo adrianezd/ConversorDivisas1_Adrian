@@ -19,7 +19,7 @@ namespace ConversorDivisas1_Adrian
         public Form1()
         {
             InitializeComponent();
-            bool bdolares=false;
+            bool bdolares = false;
             bool bPesetas = false;
             bool bPesos = false;
             bool bEuros = false;
@@ -30,31 +30,31 @@ namespace ConversorDivisas1_Adrian
             if (moneda == "Euros")
             {
                 double euros = Convert.ToDouble(cantidad);
-                tbDolares.Text = (Convert.ToDouble(euros) * 0.99).ToString();
-                tbPesetas.Text = (Convert.ToDouble(euros) * 166.386).ToString();
-                tbPesos.Text = (Convert.ToDouble(euros) * 19.75).ToString();
+                tbDolares.Text = Math.Round((Convert.ToDouble(euros) * 0.99),2).ToString();
+                tbPesetas.Text = Math.Round((Convert.ToDouble(euros) * 166.386),2).ToString();
+                tbPesos.Text = Math.Round((Convert.ToDouble(euros) * 19.75),2).ToString();
             }
             if (moneda == "Dolares")
             {
                 double dolares = Convert.ToDouble(cantidad);
-                tbEuros.Text = (Convert.ToDouble(dolares) * 1.01).ToString();
-                tbPesetas.Text = (Convert.ToDouble(dolares) * 171.122).ToString();
-                tbPesos.Text = (Convert.ToDouble(dolares) * 20.03).ToString();
+                tbEuros.Text = Math.Round((Convert.ToDouble(dolares) * 1.01),2).ToString();
+                tbPesetas.Text = Math.Round((Convert.ToDouble(dolares) * 171.122),2).ToString();
+                tbPesos.Text = Math.Round((Convert.ToDouble(dolares) * 20.03), 2).ToString();
             }
             if (moneda == "Pesos")
             {
                 double pesos = Convert.ToDouble(cantidad);
-                tbDolares.Text = (Convert.ToDouble(pesos) * 0.050).ToString();
-                tbEuros.Text = (Convert.ToDouble(pesos) * 0.051).ToString();
-                tbPesetas.Text = (Convert.ToDouble(pesos) * 8.52632).ToString();
+                tbDolares.Text = Math.Round((Convert.ToDouble(pesos) * 0.050), 2).ToString();
+                tbEuros.Text = Math.Round((Convert.ToDouble(pesos) * 0.051), 2).ToString();
+                tbPesetas.Text = Math.Round((Convert.ToDouble(pesos) * 8.52632), 2).ToString();
             }
             if (moneda == "Pesetas")
             {
                 double pesetas = Convert.ToDouble(cantidad);
-                tbDolares.Text = (Convert.ToDouble(pesetas) * 0.00589336).ToString();
+                tbDolares.Text = Math.Round((Convert.ToDouble(pesetas) * 0.00589336), 2).ToString();
                 pesetas = pesetas / 166.386;
                 tbEuros.Text = pesetas.ToString();
-                tbPesos.Text = (Convert.ToDouble(tbDolares.Text) * 20.04).ToString();
+                tbPesos.Text = Math.Round((Convert.ToDouble(tbDolares.Text) * 20.04),2).ToString();
             }
         }
 
@@ -85,7 +85,7 @@ namespace ConversorDivisas1_Adrian
             if (bEuros == true)
             {
                 if (!string.IsNullOrEmpty(tbEuros.Text))
-            {
+                {
                     if (tbEuros.Text.All(char.IsDigit) || (!tbEuros.Text.StartsWith(",")))
                     {
                         double valor = Convert.ToDouble(tbEuros.Text);
@@ -135,7 +135,6 @@ namespace ConversorDivisas1_Adrian
                     {
                         tbPesos.Text = tbPesos.Text.Remove(tbPesos.Text.Length - 1, 1);
                     }
-                    
                 }
             }
         }
@@ -182,7 +181,7 @@ namespace ConversorDivisas1_Adrian
             {
                 e.Handled = true;
             }
-            if (e.KeyChar==',')
+            if (e.KeyChar == ',')
             {
                 if (tbPesetas.Text.Contains(","))
                 {
@@ -263,5 +262,59 @@ namespace ConversorDivisas1_Adrian
                 }
             }
         }
+
+        private void cbHistorial_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            tbEuros.Text = ""; tbPesos.Text = ""; tbPesetas.Text = ""; tbDolares.Text = "";
+            double valor = Double.Parse(cbHistorial.SelectedItem.ToString().Split('e')[0]);
+            tbEuros.Text = valor.ToString();
+            tbDolares.Text = (Convert.ToDouble(valor) * 0.99).ToString();
+            tbPesetas.Text = (Convert.ToDouble(valor) * 166.386).ToString();
+            tbPesos.Text = (Convert.ToDouble(valor) * 19.75).ToString();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            cbHistorial.Text = "Historial de conversiones";
+        }
+
+        private void btGuardar_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(tbEuros.Text))
+            {
+                MessageBox.Show("Inserte valor numerico antes");
+            }
+            else
+            {
+                string tbNuevo = tbEuros.Text + " euros";
+                if (!cbHistorial.Items.Contains(tbNuevo))
+                {
+                    cbHistorial.Items.Add(tbEuros.Text + " euros");
+                }
+                else
+                {
+                    return;
+                }
+            }
+
+        }
+
+        private void btBorrar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                cbHistorial.Items.Remove(cbHistorial.SelectedItem);
+                cbHistorial.Text = "Historial de conversiones";
+
+            }
+            catch
+            {
+                MessageBox.Show("Prueba de nuevo");
+            }
+        }
     }
+    
 }
+
+
+

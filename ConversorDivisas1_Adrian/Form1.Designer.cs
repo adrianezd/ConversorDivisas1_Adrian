@@ -37,6 +37,9 @@
             this.tbPesos = new System.Windows.Forms.TextBox();
             this.lbPesos = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.cbHistorial = new System.Windows.Forms.ComboBox();
+            this.btGuardar = new System.Windows.Forms.Button();
+            this.btBorrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,7 +47,7 @@
             // 
             this.lbPesetas.AutoSize = true;
             this.lbPesetas.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.lbPesetas.Location = new System.Drawing.Point(556, 79);
+            this.lbPesetas.Location = new System.Drawing.Point(557, 52);
             this.lbPesetas.Name = "lbPesetas";
             this.lbPesetas.Size = new System.Drawing.Size(57, 16);
             this.lbPesetas.TabIndex = 0;
@@ -54,7 +57,7 @@
             // 
             this.lbEuros.AutoSize = true;
             this.lbEuros.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.lbEuros.Location = new System.Drawing.Point(719, 79);
+            this.lbEuros.Location = new System.Drawing.Point(750, 52);
             this.lbEuros.Name = "lbEuros";
             this.lbEuros.Size = new System.Drawing.Size(42, 16);
             this.lbEuros.TabIndex = 1;
@@ -62,7 +65,7 @@
             // 
             // tbPesetas
             // 
-            this.tbPesetas.Location = new System.Drawing.Point(534, 129);
+            this.tbPesetas.Location = new System.Drawing.Point(534, 81);
             this.tbPesetas.Name = "tbPesetas";
             this.tbPesetas.Size = new System.Drawing.Size(100, 22);
             this.tbPesetas.TabIndex = 2;
@@ -72,7 +75,7 @@
             // 
             // tbEuros
             // 
-            this.tbEuros.Location = new System.Drawing.Point(691, 129);
+            this.tbEuros.Location = new System.Drawing.Point(723, 81);
             this.tbEuros.Name = "tbEuros";
             this.tbEuros.Size = new System.Drawing.Size(100, 22);
             this.tbEuros.TabIndex = 3;
@@ -82,7 +85,7 @@
             // 
             // tbDolares
             // 
-            this.tbDolares.Location = new System.Drawing.Point(534, 329);
+            this.tbDolares.Location = new System.Drawing.Point(535, 195);
             this.tbDolares.Name = "tbDolares";
             this.tbDolares.Size = new System.Drawing.Size(100, 22);
             this.tbDolares.TabIndex = 7;
@@ -94,7 +97,7 @@
             // 
             this.lbDolares.AutoSize = true;
             this.lbDolares.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.lbDolares.Location = new System.Drawing.Point(558, 279);
+            this.lbDolares.Location = new System.Drawing.Point(557, 164);
             this.lbDolares.Name = "lbDolares";
             this.lbDolares.Size = new System.Drawing.Size(55, 16);
             this.lbDolares.TabIndex = 6;
@@ -102,7 +105,7 @@
             // 
             // tbPesos
             // 
-            this.tbPesos.Location = new System.Drawing.Point(694, 329);
+            this.tbPesos.Location = new System.Drawing.Point(723, 195);
             this.tbPesos.Name = "tbPesos";
             this.tbPesos.Size = new System.Drawing.Size(100, 22);
             this.tbPesos.TabIndex = 10;
@@ -114,7 +117,7 @@
             // 
             this.lbPesos.AutoSize = true;
             this.lbPesos.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.lbPesos.Location = new System.Drawing.Point(691, 279);
+            this.lbPesos.Location = new System.Drawing.Point(720, 164);
             this.lbPesos.Name = "lbPesos";
             this.lbPesos.Size = new System.Drawing.Size(114, 16);
             this.lbPesos.TabIndex = 9;
@@ -123,17 +126,50 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::ConversorDivisas1_Adrian.Properties.Resources.free_dollar_coin_icon_2149_thumb1;
-            this.pictureBox1.Location = new System.Drawing.Point(-21, 29);
+            this.pictureBox1.Location = new System.Drawing.Point(-129, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(524, 491);
+            this.pictureBox1.Size = new System.Drawing.Size(567, 363);
             this.pictureBox1.TabIndex = 12;
             this.pictureBox1.TabStop = false;
+            // 
+            // cbHistorial
+            // 
+            this.cbHistorial.BackColor = System.Drawing.Color.Lavender;
+            this.cbHistorial.FormattingEnabled = true;
+            this.cbHistorial.Location = new System.Drawing.Point(492, 330);
+            this.cbHistorial.Name = "cbHistorial";
+            this.cbHistorial.Size = new System.Drawing.Size(229, 24);
+            this.cbHistorial.TabIndex = 13;
+            this.cbHistorial.SelectedIndexChanged += new System.EventHandler(this.cbHistorial_SelectedIndexChanged);
+            // 
+            // btGuardar
+            // 
+            this.btGuardar.Location = new System.Drawing.Point(606, 267);
+            this.btGuardar.Name = "btGuardar";
+            this.btGuardar.Size = new System.Drawing.Size(157, 31);
+            this.btGuardar.TabIndex = 14;
+            this.btGuardar.Text = "Guardar operación";
+            this.btGuardar.UseVisualStyleBackColor = true;
+            this.btGuardar.Click += new System.EventHandler(this.btGuardar_Click);
+            // 
+            // btBorrar
+            // 
+            this.btBorrar.Location = new System.Drawing.Point(753, 330);
+            this.btBorrar.Name = "btBorrar";
+            this.btBorrar.Size = new System.Drawing.Size(114, 24);
+            this.btBorrar.TabIndex = 15;
+            this.btBorrar.Text = "Borrar objeto";
+            this.btBorrar.UseVisualStyleBackColor = true;
+            this.btBorrar.Click += new System.EventHandler(this.btBorrar_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(904, 549);
+            this.ClientSize = new System.Drawing.Size(904, 424);
+            this.Controls.Add(this.btBorrar);
+            this.Controls.Add(this.btGuardar);
+            this.Controls.Add(this.cbHistorial);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.tbPesos);
             this.Controls.Add(this.lbPesos);
@@ -145,6 +181,7 @@
             this.Controls.Add(this.lbPesetas);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -162,6 +199,9 @@
         private System.Windows.Forms.TextBox tbPesos;
         private System.Windows.Forms.Label lbPesos;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ComboBox cbHistorial;
+        private System.Windows.Forms.Button btGuardar;
+        private System.Windows.Forms.Button btBorrar;
     }
 }
 
