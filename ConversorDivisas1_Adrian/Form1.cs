@@ -52,8 +52,8 @@ namespace ConversorDivisas1_Adrian
             {
                 double pesetas = Convert.ToDouble(cantidad);
                 tbDolares.Text = Math.Round((Convert.ToDouble(pesetas) * 0.00589336), 2).ToString();
-                pesetas = pesetas / 166.386;
-                tbEuros.Text = pesetas.ToString();
+                pesetas = pesetas ;
+                tbEuros.Text = Math.Round((Convert.ToDouble(pesetas) / 166.386), 2).ToString();
                 tbPesos.Text = Math.Round((Convert.ToDouble(tbDolares.Text) * 20.04),2).ToString();
             }
         }
@@ -266,11 +266,11 @@ namespace ConversorDivisas1_Adrian
         private void cbHistorial_SelectedIndexChanged(object sender, EventArgs e)
         {
             tbEuros.Text = ""; tbPesos.Text = ""; tbPesetas.Text = ""; tbDolares.Text = "";
-            double valor = Double.Parse(cbHistorial.SelectedItem.ToString().Split('e')[0]);
+            double valor = Math.Round(Double.Parse(cbHistorial.SelectedItem.ToString().Split('e')[0]),2);
             tbEuros.Text = valor.ToString();
-            tbDolares.Text = (Convert.ToDouble(valor) * 0.99).ToString();
-            tbPesetas.Text = (Convert.ToDouble(valor) * 166.386).ToString();
-            tbPesos.Text = (Convert.ToDouble(valor) * 19.75).ToString();
+            tbDolares.Text = Math.Round(Convert.ToDouble(valor) * 0.99,2).ToString();
+            tbPesetas.Text = Math.Round(Convert.ToDouble(valor) * 166.386,2).ToString();
+            tbPesos.Text = Math.Round(Convert.ToDouble(valor) * 19.75, 2).ToString();
         }
 
         private void Form1_Load(object sender, EventArgs e)
