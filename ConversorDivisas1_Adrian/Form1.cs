@@ -301,13 +301,20 @@ namespace ConversorDivisas1_Adrian
 
         private void btBorrar_Click(object sender, EventArgs e)
         {
-            try
+            if (cbHistorial.SelectedIndex > -1)
             {
-                cbHistorial.Items.Remove(cbHistorial.SelectedItem);
-                cbHistorial.Text = "Historial de conversiones";
-
+                    DialogResult resultado = MessageBox.Show("Esta usted seguro de borrar esto", "Borrar objeto", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (resultado == DialogResult.Yes)
+                    {
+                        cbHistorial.Items.Remove(cbHistorial.SelectedItem);
+                        cbHistorial.Text = "Historial de conversiones";
+                    }
+                    else
+                    {
+                    return;
+                    }  
             }
-            catch
+            else
             {
                 MessageBox.Show("Prueba de nuevo");
             }
